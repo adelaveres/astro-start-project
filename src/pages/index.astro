@@ -1,7 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import {db, Comment} from 'astro:db';
 const pageTitleLocal = "Home Page";
+const comments = await db.select().from(Comment);
 ---
 <BaseLayout pageTitle={pageTitleLocal}>
   <h2>My awesome blog subtitle</h2>
+
+  {
+	comments.map( ({author, body}) =>(
+		<article>
+			<p>Author: {author}</p>
+			<p>{body}</p>
+		</article>
+
+	))
+  }
+
+
 </BaseLayout>
