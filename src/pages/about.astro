@@ -1,9 +1,6 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../styles/global.css';
-
-const pageTitle = "About Me";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitleLocal = "About Me";
 
 const identity = {
   firstName: "Adele",
@@ -18,41 +15,11 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
-const skillColor= "navy";
-const fontWeight= 'bold';
-const textCase="uppercase";
-
 ---
 
+<BaseLayout pageTitle={pageTitleLocal}>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-        
-        <style define:vars={{skillColor, fontWeight, textCase}}>
-            h1{
-                color: purple;
-                font-size: 4rem;
-            }
-            .skill{
-                color: var(--skillColor);
-                font-weight: var(--fontWeight);
-                text-transform: var(--textCase);
-            }
-        </style>
-    </head>
-
-
-	<body>
-
-        <Header/>
-
-		<h1>{pageTitle}</h1>
-        <h2>... and my new Astro site!</h2>
+    <h2>... and my new Astro site!</h2>
 
         <p>I am working through Astro's introductory tutorial. This is the second page on my website!</p>
 
@@ -78,10 +45,13 @@ const textCase="uppercase";
             :
             <p>My goal is not 3 days.</p>}
 
-    </body>
+</BaseLayout>
 
-    <Footer />
-    <script>
-        import "../scripts/menu.js";
-      </script>
-</html>
+
+        
+        
+
+
+
+
+        
